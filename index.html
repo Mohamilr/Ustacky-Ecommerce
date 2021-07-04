@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>E-commerce</title>
+    <link rel="shortcut icon" href="./asset/Images/EMS.ico" type="image/x-icon">
     <link rel="stylesheet" href="./asset/css/style.css" />
   </head>
   <body>
@@ -20,7 +21,7 @@
         </ul>
         <div class="cart-icon-container">
           <img src="./asset/Images/cart.svg" alt="cart" />
-          <span>0</span>
+          <span class="cart-item-count">0</span>
         </div>
       </nav>
     </header>
@@ -51,42 +52,7 @@
       <section id="Shop">
         <h2>OUR GADGETS</h2>
         <div class="products-container">
-          <div class="product">
-            <div class="product-image-container">
-              <img src="./asset/Images/product1.png" alt="product" />
-              <div class="overlay">
-                <p class="price-tag">Price</p>
-                <p class="price">#250,000</p>
-              </div>
-            </div>
-            <h3>MACBOOK AIR</h3>
-            <button>ADD TO CART</button>
-          </div>
-          <div class="product">
-            <img src="./asset/Images/product1.png" alt="product" />
-            <h3>MACBOOK AIR</h3>
-            <button>ADD TO CART</button>
-          </div>
-          <div class="product">
-            <img src="./asset/Images/product1.png" alt="product" />
-            <h3>MACBOOK AIR</h3>
-            <button>ADD TO CART</button>
-          </div>
-          <div class="product">
-            <img src="./asset/Images/product1.png" alt="product" />
-            <h3>MACBOOK AIR</h3>
-            <button>ADD TO CART</button>
-          </div>
-          <div class="product">
-            <img src="./asset/Images/product1.png" alt="product" />
-            <h3>MACBOOK AIR</h3>
-            <button>ADD TO CART</button>
-          </div>
-          <div class="product">
-            <img src="./asset/Images/product1.png" alt="product" />
-            <h3>MACBOOK AIR</h3>
-            <button>ADD TO CART</button>
-          </div>
+          <!-- products from data -->
         </div>
       </section>
       <!-- modal background -->
@@ -103,37 +69,28 @@
                 <td>Quantity</td>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>PS 5</td>
-                <td>#30,000</td>
-                <td>
-                  <button class="reduce">-</button
-                  ><span class="quantity">1</span
-                  ><button class="increase">+</button>
-                </td>
-                <td><button class="remove">Remove</button></td>
-              </tr>
+            <tbody class="cart-data">
+              <!-- js data -->
             </tbody>
           </table>
-          <form action="" class="cart-form">
-            <input type="text" placeholder="Your Name" required />
-            <span>Enter your name</span>
+          <form class="cart-form">
+            <input type="text" placeholder="Your Name" id="name" required />
+            <!-- <span>Enter your name</span> -->
             <input
               type="email"
               placeholder="email@email.com"
+              id="email"
               required
             />
-            <span>Enter your email</span>
-            <input type="number" placeholder="09012345678" required />
-            <span>Enter your phone</span>
+            <!-- <span>Enter your email</span> -->
+            <input type="number" placeholder="09012345678" id="phone" minlength="9" maxlength="15" required />
+            <!-- <span>Enter your phone</span> -->
             <div class="checkout-option-container">
               <h3>Total Amount to be Paid</h3>
-              <p>#80,000</p>
+              <p class="total-items-price">₦0</p>
               <div class="checkout-option">
-                <button class="continue">Continue Shopping</button
-                ><input type="submit" class="checkout" value="Checkout" />
+                <div class="continue">Continue Shopping</div
+                ><input type="submit" class="checkout" id="checkout" value="Checkout" />
               </div>
             </div>
           </form>
@@ -144,8 +101,8 @@
       <section class="success-modal-container">
         <div class="success-modal">
           <h3>
-            Thank You, <span class="customer-name">ADE adamu</span>, yOUR oRDER
-            hAS BEEN rECEIVED
+            Thank You, <span class="customer-name"></span>, your order
+            has been received
           </h3>
           <div class="success-image-container">
             <img src="./asset/Images/check.svg" alt="success" />
@@ -160,16 +117,12 @@
                   <td>Quantity</td>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>PS 5</td>
-                  <td>3</td>
-                </tr>
+              <tbody class="purchased-data">
+<!-- js data -->
               </tbody>
             </table>
             <div class="ok-cont">
-              <button class="ok">Ok</button>
+              <button class="ok" id="ok">Ok</button>
             </div>
           </div>
         </div>
@@ -181,6 +134,7 @@
         <p>Coded by Mohammed Ibrahim</p>
       </div>
     </footer>
-    <script src="./asset/js/main.js"></script>
+    <script src="https://js.paystack.co/v1/inline.js"></script> 
+    <script type="module" src="./asset/js/main.js"></script>
   </body>
 </html>
