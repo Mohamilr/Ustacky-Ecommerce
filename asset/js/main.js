@@ -54,7 +54,7 @@ data.forEach((product) => {
     `;
 });
 
-// buttons
+// Add to cart Buttons
 for (const addProductBtn of addProductBtns) {
   addProductBtn.addEventListener("click", (e) => {
     addProductBtn.style.display = "none";
@@ -74,6 +74,7 @@ for (const addProductBtn of addProductBtns) {
   });
 }
 
+// Remove from cart buttons
 for (const removeBtn of removeProductBtns) {
   removeBtn.addEventListener("click", (e) => {
     removeBtn.style.display = "none";
@@ -87,20 +88,22 @@ for (const removeBtn of removeProductBtns) {
   });
 }
 
-// Calculate Grand total price
+/**
+ * Calculate Grand total price
+ * @returns total price of all cart intem
+ */
 function overallCartAmount() {
   initialTotalPrice = 0;
   for (let i = 0; i < cartItemPrices.length; i++) {
     initialTotalPrice += parseInt(cartItemPrices[i].textContent.slice(1));
   }
-  totalItemsPrice.textContent = `₦${initialTotalPrice}`;
+  return totalItemsPrice.textContent = `₦${initialTotalPrice}`;
 }
 
-// cart
+// cart icon
 cartIconContainer.addEventListener("click", () => {
+  openCartModal()
   displayCartItems();
-  modalBackground.style.display = "block";
-  cartModal.style.display = "block";
   overallCartAmount();
 
   let totalPrice;
@@ -135,16 +138,29 @@ cartIconContainer.addEventListener("click", () => {
   }
 });
 
-// handle Modal
+/**
+ * Handles cart modal state (close)
+ */
 function closeCartModal() {
   modalBackground.style.display = "none";
   cartModal.style.display = "none";
   cartItems.innerHTML = "";
 }
 
+/**
+ * Handles cart modal state (open)
+ */
+function openCartModal() {
+  modalBackground.style.display = "block";
+  cartModal.style.display = "block";
+}
+
 continueShoppingBtn.addEventListener("click", closeCartModal);
 modalBackground.addEventListener("click", closeCartModal);
 
+/**
+ * Handles success modal state (close)
+ */
 function closeSuccessModal() {
   successModal.style.display = "none";
 
@@ -159,6 +175,9 @@ function closeSuccessModal() {
   }
 }
 
+/**
+ * Handles success modal state (open)
+ */
 function openSuccessModal() {
   successModal.style.display = "block";
   displayPurchasedItems();
@@ -177,7 +196,7 @@ function displayCartItems() {
                  <td class="cart-item-price" id=${item.id}-${item.price}>₦${
       item.price
     }</td>
-                 <td>
+                 <td class="quantity-increase-container">
                    <button class="reduce">-</button
                    ><span class="quantity">${item.quantity}</span
                    ><button class="increase">+</button>

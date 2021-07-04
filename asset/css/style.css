@@ -138,25 +138,26 @@ nav ul li {
 
 .products-container .product .product-image-container {
   position: relative;
+  width: 100%;
 }
 
 .products-container .product .product-image-container img {
-  width: 18em;
-  height: 23em;
+  /* width: 18em;
+  height: 23em; */
+  width: inherit;
+  height: inherit;
   border-radius: 5px;
 }
 
 .overlay {
   position: absolute;
   top: 0px;
-  left: 9%;
   border-radius: 5px;
   opacity: 0;
   margin: 0 auto;
-  width: 50%;
   background-color: black;
-  width: 18em;
-  height: 23em;
+  width: inherit;
+  height: 99%;
   padding: 10em 0;
   transition: all 1s;
 }
@@ -275,6 +276,10 @@ table tbody .reduce,
   background-color: var(--intro-color);
   font-weight: bolder;
   cursor: pointer;
+}
+
+.quantity-increase-container {
+  display: flex;
 }
 
 .quantity {
@@ -410,10 +415,6 @@ p {
     width: 30em;
   }
 
-  .overlay {
-    left: 15%;
-  }
-
   #Shop {
     padding: 1em 4em 4em;
   }
@@ -453,10 +454,6 @@ p {
   nav .brand {
     display: none;
   }
-
-  .overlay {
-    left: 27%;
-}
 
   nav {
     display: flex;
@@ -559,8 +556,4 @@ p {
   .intro-image > img {
     width: 16em;
   }
-
-  .overlay {
-    left: 1%;
-}
 }
