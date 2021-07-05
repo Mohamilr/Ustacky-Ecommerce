@@ -56,8 +56,9 @@
         </div>
       </section>
       <!-- modal background -->
-      <section class="modal-background"></section>
       <!-- cart modal -->
+      <section class="modal-background">
+      </section>
       <section class="cart-modal">
         <div class="cart-container">
           <table class="cart-table">
@@ -74,16 +75,20 @@
             </tbody>
           </table>
           <form class="cart-form">
-            <input type="text" placeholder="Your Name" id="name" required />
+            <input type="text" oninvalid="this.setCustomValidity('Please Enter a name')"
+            oninput="setCustomValidity('')" placeholder="Your Name" id="name" required />
             <!-- <span>Enter your name</span> -->
             <input
               type="email"
+              oninvalid="this.setCustomValidity('Please Enter a valid email')"
+            oninput="setCustomValidity('')"
               placeholder="email@email.com"
               id="email"
               required
             />
             <!-- <span>Enter your email</span> -->
-            <input type="number" placeholder="09012345678" id="phone" minlength="9" maxlength="15" required />
+            <input type="text" pattern="^[0]\d{10}$" oninvalid="this.setCustomValidity('Please Enter a valid number e.g (09012345678)')"
+            oninput="setCustomValidity('')" placeholder="09012345678" id="phone" minlength="9" maxlength="15" required />
             <!-- <span>Enter your phone</span> -->
             <div class="checkout-option-container">
               <h3>Total Amount to be Paid</h3>
@@ -94,8 +99,6 @@
               </div>
             </div>
           </form>
-
-          
         </div>
       </section>
       <section class="success-modal-container">

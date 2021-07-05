@@ -40,17 +40,17 @@ let initialTotalPrice = 0;
 data.forEach((product) => {
   productContainer.innerHTML += `
     <div class="product">
-            <div class="product-image-container">
-              <img src="${product.image}" alt="product" />
-              <div class="overlay">
-                <p class="price-tag">Price</p>
-                <p class="price">₦${product.price}</p>
-              </div>
-            </div>
-            <h3>${product.name}</h3>
-            <button value=${product.id} class="product-btn">ADD TO CART</button>
-            <button value=${product.id} class="remove-from-cart">REMOVE FROM CART</button>
+      <div class="product-image-container">
+          <img src="${product.image}" alt="product" />
+          <div class="overlay">
+            <p class="price-tag">Price</p>
+            <p class="price">₦${product.price}</p>
           </div>
+      </div>
+      <h3>${product.name}</h3>
+      <button value=${product.id} class="product-btn">ADD TO CART</button>
+      <button value=${product.id} class="remove-from-cart">REMOVE FROM CART</button>
+    </div>
     `;
 });
 
@@ -156,7 +156,12 @@ function openCartModal() {
 }
 
 continueShoppingBtn.addEventListener("click", closeCartModal);
-modalBackground.addEventListener("click", closeCartModal);
+// close modal by clicking out of it
+window.onclick = function(event) {
+  if (event.target == cartModal) {
+    closeCartModal()
+  }
+}
 
 /**
  * Handles success modal state (close)
@@ -191,18 +196,16 @@ function displayCartItems() {
   cart.forEach((item, i) => {
     cartItems.innerHTML += `
    <tr id=${item.id}>
-                 <td>${i + 1}</td>
-                 <td>${item.itemName}</td>
-                 <td class="cart-item-price" id=${item.id}-${item.price}>₦${
-      item.price
-    }</td>
-                 <td class="quantity-increase-container">
-                   <button class="reduce">-</button
-                   ><span class="quantity">${item.quantity}</span
-                   ><button class="increase">+</button>
-                 </td>
-                 <td><button class="remove">Remove</button></td>
-               </tr>
+      <td>${i + 1}</td>
+      <td>${item.itemName}</td>
+      <td class="cart-item-price" id=${item.id}-${item.price}>₦${item.price}</td>
+      <td class="quantity-increase-container">
+        <button class="reduce">-</button>
+        <span class="quantity">${item.quantity}</span>
+        <button class="increase">+</button>
+      </td>
+      <td><button class="remove">Remove</button></td>
+    </tr>
    `;
   });
 }
@@ -211,10 +214,10 @@ function displayPurchasedItems() {
   cart.forEach((item, i) => {
     purchasedData.innerHTML += `
    <tr>
-                   <td>${i + 1}</td>
-                   <td>${item.itemName}</td>
-                   <td>${item.quantity}</td>
-                 </tr>
+      <td>${i + 1}</td>
+        <td>${item.itemName}</td>
+        <td>${item.quantity}</td>
+    </tr>
    `;
   });
 }
@@ -309,11 +312,10 @@ cartForm.addEventListener(
 
 function payWithPaystack() {
   let handler = PaystackPop.setup({
-    key: "pk_test_420f5d09d81b1975850448939bf7bc24b31a4b1f", // Replace with your public key
+    key: "pk_test_420f5d09d81b1975850448939bf7bc24b31a4b1f",
     email: email.value,
     amount: parseInt(totalItemsPrice.textContent.slice(1), 10) * 100,
-    ref: "" + Math.floor(Math.random() * 1000000000 + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
-    // label: "Optional string that replaces customer email"
+    ref: "" + Math.floor(Math.random() * 1000000000 + 1),
     onClose: function () {
       alert("Window closed.");
     },
