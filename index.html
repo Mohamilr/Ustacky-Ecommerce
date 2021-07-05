@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-commerce</title>
+    <link rel="shortcut icon" href="./asset/Images/EMS.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./asset/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/index.html" class="brand"
+          ><img src="./asset/Images/EMS.svg" alt="logo"
+        /></a>
+        <ul>
+          <li><a href="#Intro" class="nav-link">Intro</a></li>
+          <li><a href="#About" class="nav-link">About</a></li>
+          <li><a href="#Shop" class="nav-link">Shop</a></li>
+        </ul>
+        <div class="cart-icon-container">
+          <img src="./asset/Images/cart.svg" alt="cart" />
+          <span class="cart-item-count">0</span>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section id="Intro">
+        <div class="intro-container">
+          <div>
+            <h1 class="intro-text">
+              THE <br />
+              E-MILLENIAL <br />
+              STORE
+            </h1>
+          </div>
+          <div class="intro-image">
+            <img src="./asset/Images/heroImage.png" alt="intro image" />
+          </div>
+        </div>
+        <a href="#Shop" class="intro-shop-btn">SHOP NOW</a>
+      </section>
+      <section id="About">
+        <h2>
+          E-Millenial Store is an hypothetical online store for gadgets, we
+          believe every 'Millenial' or 'Gen-Z' should have today. We've got
+          mobile phones, laptops, smartwatches and other gadgets. Explore all
+          our gadgets and choose the ones that suit you.
+        </h2>
+      </section>
+      <section id="Shop">
+        <h2>OUR GADGETS</h2>
+        <div class="products-container">
+          <!-- products from data -->
+        </div>
+      </section>
+      <!-- modal background -->
+      <!-- cart modal -->
+      <section class="modal-background">
+      </section>
+      <section class="cart-modal">
+        <div class="cart-container">
+          <table class="cart-table">
+            <thead>
+              <tr>
+                <td>S/N</td>
+                <td>Item</td>
+                <td>Price</td>
+                <td>Quantity</td>
+              </tr>
+            </thead>
+            <tbody class="cart-data">
+              <!-- js data -->
+            </tbody>
+          </table>
+          <form class="cart-form">
+            <input type="text" oninvalid="this.setCustomValidity('Please Enter a name')"
+            oninput="setCustomValidity('')" placeholder="Your Name" id="name" required />
+            <!-- <span>Enter your name</span> -->
+            <input
+              type="email"
+              oninvalid="this.setCustomValidity('Please Enter a valid email')"
+            oninput="setCustomValidity('')"
+              placeholder="email@email.com"
+              id="email"
+              required
+            />
+            <!-- <span>Enter your email</span> -->
+            <input type="text" pattern="^[0]\d{10}$" oninvalid="this.setCustomValidity('Please Enter a valid number e.g (09012345678)')"
+            oninput="setCustomValidity('')" placeholder="09012345678" id="phone" minlength="9" maxlength="15" required />
+            <!-- <span>Enter your phone</span> -->
+            <div class="checkout-option-container">
+              <h3>Total Amount to be Paid</h3>
+              <p class="total-items-price">₦0</p>
+              <div class="checkout-option">
+                <div class="continue">Continue Shopping</div
+                ><input type="submit" class="checkout" id="checkout" value="Checkout" />
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+      <section class="success-modal-container">
+        <div class="success-modal">
+          <h3>
+            Thank You, <span class="customer-name"></span>, your order
+            has been received
+          </h3>
+          <div class="success-image-container">
+            <img src="./asset/Images/check.svg" alt="success" />
+          </div>
+          <div class="checkout-summary">
+            <h3>Summary</h3>
+            <table class="success-table">
+              <thead>
+                <tr>
+                  <td>S/N</td>
+                  <td>Item</td>
+                  <td>Quantity</td>
+                </tr>
+              </thead>
+              <tbody class="purchased-data">
+<!-- js data -->
+              </tbody>
+            </table>
+            <div class="ok-cont">
+              <button class="ok" id="ok">Ok</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer-container">
+        <img src="./asset/Images/EMS.svg" alt="logo" />
+        <p>Coded by Mohammed Ibrahim</p>
+      </div>
+    </footer>
+    <script src="https://js.paystack.co/v1/inline.js"></script> 
+    <script type="module" src="./asset/js/main.js"></script>
+  </body>
+</html>
