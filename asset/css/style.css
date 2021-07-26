@@ -69,8 +69,8 @@ nav ul li {
 }
 
 .intro-container > div {
- display: flex;
- align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .intro-container .intro-text {
@@ -222,6 +222,7 @@ footer {
 }
 
 .footer-container > p {
+  text-align: right;
   padding: 10px;
   color: var(--product-background);
 }
@@ -320,7 +321,7 @@ table tbody .reduce,
 }
 
 .checkout-option-container > h3,
-p {
+.checkout-option-container > p {
   text-align: center;
   font-size: 30px;
   font-weight: 800;
@@ -453,7 +454,7 @@ p {
   }
 }
 
-@media screen and (max-width: 786px){ 
+@media screen and (max-width: 786px) {
   .intro-image > img {
     width: 22em;
   }
@@ -564,5 +565,20 @@ p {
 
   .intro-image > img {
     width: 16em;
+  }
+
+  .overlay {
+    padding-top: 8em;
+  }
+
+}
+
+@media screen and (max-width: 280px) {
+  .overlay {
+    padding-top: 6em;
+  }
+
+  .cart-icon-container {
+    padding: 1px 10px;
   }
 }
